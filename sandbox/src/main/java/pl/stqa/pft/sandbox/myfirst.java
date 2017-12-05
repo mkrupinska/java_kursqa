@@ -8,12 +8,12 @@ public class myfirst {
     hello ("user");
     hello ("ty");
 
-    double l = 5;
-    System.out.println("Powierzchnia kwadratu o boku " + l + " = " + area(l) );
+    Square s = new Square(5);
+    System.out.println("Powierzchnia kwadratu o boku " + s.l + " = " + s.area() );
 
-    double a = 4;
-    double b = 6;
-    System.out.println("Powierzchnia prostokąta o bokach " + a + " i " + b + " = " + area(a, b) );
+    Rectangle r = new Rectangle(4,6);
+
+    System.out.println("Powierzchnia prostokąta o bokach " + r.a + " i " + r.b + " = " + r.area() );
 
   }
 
@@ -22,12 +22,6 @@ public class myfirst {
     System.out.println("hello, "+ somebody + "!");
   }
 
-  public static double area (double len) {
-    return len * len;
-  }
 
-  public static double area (double a, double b){
-    return a * b;
-    }
 
 }
