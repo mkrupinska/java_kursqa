@@ -10,8 +10,16 @@ public class Rectangle {
     this.b = b;
   }
 
+
   public double area (){
     return this.a * this.b;
   }
+
+
+  public double obwod (int w) {
+    return (2*a + 2*b)*w;
+  }
+
+
 
 }

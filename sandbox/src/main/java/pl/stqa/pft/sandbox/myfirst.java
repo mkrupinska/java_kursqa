@@ -12,8 +12,11 @@ public class myfirst {
     System.out.println("Powierzchnia kwadratu o boku " + s.l + " = " + s.area() );
 
     Rectangle r = new Rectangle(4,6);
+    Rectangle r2 =new Rectangle(3);
 
     System.out.println("Powierzchnia prostokąta o bokach " + r.a + " i " + r.b + " = " + r.area() );
+
+    System.out.println("wielokrotnosc:" + r.obwod(5));
 
   }
 
