@@ -16,10 +16,4 @@ public class Rectangle {
   }
 
 
-  public double obwod (int w) {
-    return (2*a + 2*b)*w;
-  }
-
-
-
 }
