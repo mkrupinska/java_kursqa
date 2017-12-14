@@ -1,18 +1,27 @@
 package pl.stqa.pft.addressbook.tests;
 
-
 import org.testng.annotations.Test;
 import pl.stqa.pft.addressbook.model.GroupData;
 
-public class GroupCreationTest extends TestBase {
+public class GroupModyficationTest extends TestBase {
 
-  @Test
-  public void testGroupCreation() {
+@Test
+  public void testGroupModyfication() {
+
     app.getNavigationHelper().goToGroupPage();
-    app.getGroupHelper().initGroupCreation();
+    app.getGroupHelper().SelectGroup();
+    app.getGroupHelper().initGroupModyfication();
     app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "test3"));
-    app.getGroupHelper().submitGroupCreation();
+    app.getGroupHelper().submitGroupModyfication();
     app.getGroupHelper().returnToGroupPage();
+
+
+
+
   }
+
+
+
+
 
 }

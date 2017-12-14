@@ -42,7 +42,7 @@ public class ApplicationManager {
     return contactHelper;
   }
 
-  public void goToGroupPage() {
-    navigationHelper.goToGroupPage();
-  }
+  //public void goToGroupPage() {
+    //navigationHelper.goToGroupPage();
+  //}
 }

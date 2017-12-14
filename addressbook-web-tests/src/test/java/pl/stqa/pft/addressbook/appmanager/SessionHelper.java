@@ -3,7 +3,7 @@ package pl.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SessionHelper extends HelperBase {
+public class SessionHelper extends BaseHelper {
 
   public SessionHelper(FirefoxDriver wd) {
     super(wd);
