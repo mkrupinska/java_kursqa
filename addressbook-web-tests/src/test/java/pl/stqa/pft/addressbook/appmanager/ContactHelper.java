@@ -22,10 +22,30 @@ public class ContactHelper extends BaseHelper {
     click(By.linkText("add new"));
   }
 
-  public void confirmCreation (){
+  public void confirmCreation () {
     click((By.xpath("//div[@id='content']/form/input[21]")));
+
+    }
+
+  public void selectElement(String id) {
+    if (!wd.findElement(By.id(id)).isSelected()) {
+      wd.findElement(By.id(id)).click();
+    }
   }
 
+  public void choosEditContact (Integer inLine){
+    click((By.xpath("//table[@id='maintable']/tbody/tr["+(inLine+1)+"]/td[8]/a/img")));
+  }
 
+  public void confirmEditContatct (){
+    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+  }
 
+  public void deleteContact() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+  }
+
+  public void closeAlertWindow(){
+    wd.switchTo().alert().accept();
+  }
 }
