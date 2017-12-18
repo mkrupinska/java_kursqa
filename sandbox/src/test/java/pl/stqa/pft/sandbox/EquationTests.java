@@ -10,7 +10,6 @@ public class EquationTests {
 
     Equation jeden = new Equation(1,1,1);
     Assert.assertEquals(jeden.RootNumber(),0);
-
   }
 
   @Test
@@ -18,7 +17,6 @@ public class EquationTests {
 
     Equation dwa = new Equation(1,2,1);
     Assert.assertEquals(dwa.RootNumber(),1);
-
   }
 
   @Test
@@ -26,7 +24,28 @@ public class EquationTests {
 
     Equation trzy = new Equation(1,5,6);
     Assert.assertEquals(trzy.RootNumber(),2);
-
   }
+
+  @Test
+  public void testLiniowy () {
+
+    Equation trzy = new Equation(0, 5, 6);
+    Assert.assertEquals(trzy.RootNumber(), 1);
+  }
+
+  @Test
+  public void testConstant () {
+
+    Equation trzy = new Equation(0, 0, 6);
+    Assert.assertEquals(trzy.RootNumber(), 0);
+  }
+
+  @Test
+  public void testZero () {
+
+    Equation trzy = new Equation(0, 0, 0);
+    Assert.assertEquals(trzy.RootNumber(), -1);
+  }
+
 }
 
