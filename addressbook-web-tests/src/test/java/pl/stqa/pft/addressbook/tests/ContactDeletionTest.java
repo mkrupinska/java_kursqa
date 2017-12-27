@@ -8,7 +8,7 @@ public class ContactDeletionTest extends TestBase {
   public void testContactDeletion () {
 
     app.getNavigationHelper().gotoHomePage();
-    app.getContactHelper().selectElement("17");
+    app.getContactHelper().selectElement("14");
     app.getContactHelper().deleteContact();
     app.getContactHelper().closeAlertWindow();
     app.getNavigationHelper().gotoHomePage();
