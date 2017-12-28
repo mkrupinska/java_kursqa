@@ -39,13 +39,26 @@ public class ContactHelper extends BaseHelper {
     }
 
   public void selectElement(String id) {
-    if (!wd.findElement(By.id(id)).isSelected()) {
-      wd.findElement(By.id(id)).click();
+    if (isElementPresent(By.id(id))){
+      if (!wd.findElement(By.id(id)).isSelected()) {
+        wd.findElement(By.id(id)).click();
+      }
+    }else
+      if (isElementPresent(By.name("selected[]"))){
+      wd.findElement(By.name("selected[]")).click();
+      System.out.println("there is no element with selected ID, random element selected");
     }
   }
 
   public void chooseEditContact (Integer inLine){
-    click((By.xpath("//table[@id='maintable']/tbody/tr["+(inLine+1)+"]/td[8]/a/img")));
+    By loc = By.xpath("//table[@id='maintable']/tbody/tr["+(inLine+1)+"]/td[8]/a/img");
+    if (isElementPresent(loc)) {
+      click(loc);
+    }
+    else {
+      wd.findElement(By.cssSelector("img[title=\"Edit\"]")).click();
+      System.out.println("There is no selected element, modified random element");
+    }
   }
 
   public void confirmEditContatct (){
@@ -58,5 +71,15 @@ public class ContactHelper extends BaseHelper {
 
   public void closeAlertWindow(){
     wd.switchTo().alert().accept();
+  }
+
+  public void createContact(ContactData contact) {
+    initAddNewContact();
+    fillContactForm(contact, true);
+    confirmCreation();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
   }
 }

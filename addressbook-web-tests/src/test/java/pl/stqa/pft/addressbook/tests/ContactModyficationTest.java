@@ -9,6 +9,9 @@ public class ContactModyficationTest extends TestBase {
   public void testContactModyfication() {
 
     app.getNavigationHelper().gotoHomePage();
+    if (! app.getContactHelper().isThereAContact()) {
+      app.getContactHelper().createContact(new ContactData("testimie", "testnazwi", "gdzies", "1231234", "imejl@test.pl", "test1"));
+    }
     app.getContactHelper().chooseEditContact(5);
     app.getContactHelper().fillContactForm(new ContactData("modify", "modifynazw", "gdzies", "1231234", "imejl@test.pl", null), false);
     app.getContactHelper().confirmEditContatct();
