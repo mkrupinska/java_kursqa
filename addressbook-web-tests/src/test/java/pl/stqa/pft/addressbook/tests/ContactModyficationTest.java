@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ContactModyficationTest extends TestBase {
 
-  @Test
+  @Test (enabled = false)
   public void testContactModyfication() {
 
     Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
