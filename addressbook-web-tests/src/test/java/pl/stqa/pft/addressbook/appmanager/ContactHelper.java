@@ -60,21 +60,29 @@ public class ContactHelper extends BaseHelper {
 
 
 
-  public WebElement chooseEditContact(Integer inLine) {
-    WebElement element = null;
-    By loc = By.xpath("//table[@id='maintable']/tbody/tr[" + (inLine + 1) + "]/td[8]/a/img");
-    if (isElementPresent(loc)) {
-      element = wd.findElement(loc);
-      click(loc);
-     } else {
-      element = wd.findElement(By.cssSelector("img[title=\"Edit\"]"));
-      wd.findElement(By.cssSelector("img[title=\"Edit\"]")).click();
+  public Integer chooseEditContact(Integer index) {
 
-
-      System.out.println("There is no selected element, modified random element");
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    int inLine = 1;
+    if (index > rows.size() || index <0)
+    {index = 1;
+      System.out.println("There is no selected element, modified first element");
     }
-    return element;
+    for (WebElement row : rows) {
+
+      if (inLine == index){
+      List<WebElement> cells = row.findElements(By.tagName("td"));
+      int iD = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
+      cells.get(7).findElement(By.cssSelector("img[title=\"Edit\"]")).click();
+      return iD;
+        }
+        inLine++;
+    }
+      return 0;
   }
+
+
+
 
   public void confirmEditContatct() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));

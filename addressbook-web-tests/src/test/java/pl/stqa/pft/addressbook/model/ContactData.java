@@ -74,4 +74,8 @@ public class ContactData {
 
     return Objects.hash(firstname, lastname);
   }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 }
