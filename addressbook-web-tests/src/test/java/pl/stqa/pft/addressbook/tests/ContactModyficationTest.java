@@ -1,6 +1,5 @@
 package pl.stqa.pft.addressbook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.stqa.pft.addressbook.model.ContactData;
@@ -15,7 +14,7 @@ public class ContactModyficationTest extends TestBase {
 
     Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
 //    Comparator<? super ContactData> byName = (c1, c2) -> c1.getLastname().compareTo(c2.getLastname());
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
     ContactData contact = new ContactData("takie", "testnazwi", "gdzies", "1231234", "imejl@test.pl", "test1");
     if (! app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(contact);
@@ -36,7 +35,7 @@ public class ContactModyficationTest extends TestBase {
     int modifiedID = app.getContactHelper().chooseEditContact(400+1);
     app.getContactHelper().fillContactForm(contact, false);
     app.getContactHelper().confirmEditContatct();
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
 
     Assert.assertEquals(after.size() , before.size());
