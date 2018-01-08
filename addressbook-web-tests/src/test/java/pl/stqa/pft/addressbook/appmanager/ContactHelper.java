@@ -8,10 +8,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pl.stqa.pft.addressbook.model.ContactData;
+import pl.stqa.pft.addressbook.model.Contacts;
 import pl.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends BaseHelper {
 
@@ -40,8 +43,7 @@ public class ContactHelper extends BaseHelper {
 
   public void confirmCreation() {
     click((By.xpath("//div[@id='content']/form/input[21]")));
-
-  }
+    }
 
   public WebElement selectElement(String id) {
     WebElement element = null;
@@ -58,31 +60,23 @@ public class ContactHelper extends BaseHelper {
     return element;
   }
 
-
-
-  public Integer chooseEditContact(Integer index) {
-
-    List<WebElement> rows = wd.findElements(By.name("entry"));
-    int inLine = 1;
-    if (index > rows.size() || index <0)
-    {index = 1;
-      System.out.println("There is no selected element, modified first element");
-    }
-    for (WebElement row : rows) {
-
-      if (inLine == index){
-      List<WebElement> cells = row.findElements(By.tagName("td"));
-      int iD = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
-      cells.get(7).findElement(By.cssSelector("img[title=\"Edit\"]")).click();
-      return iD;
-        }
-        inLine++;
-    }
-      return 0;
+  public void chooseEditContact(Integer index){
+    wd.findElements(By.cssSelector(("img[title=\"Edit\"]"))).get(index).click();
   }
 
 
+  public void chooseEditContact(ContactData contact) {
 
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    for (WebElement row : rows) {
+      List<WebElement> cells = row.findElements(By.tagName("td"));
+      int iD = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
+      if (contact.getId() == iD){
+        cells.get(7).findElement(By.cssSelector("img[title=\"Edit\"]")).click();
+        return;
+      }
+    }
+  }
 
   public void confirmEditContatct() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
@@ -102,21 +96,35 @@ public class ContactHelper extends BaseHelper {
     confirmCreation();
   }
 
+  public void delete(ContactData contact) {
+    selectElement(Integer.toString(contact.getId()));
+    deleteContact();
+    closeAlertWindow();
+  }
+
+  public void modify(ContactData contact) {
+    chooseEditContact(contact);
+    fillContactForm(contact, false);
+    confirmEditContatct();
+  }
+
+
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public List<ContactData> getContactList() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
       List<WebElement> cells = element.findElements(By.tagName("td"));
       String lastName = cells.get(1).getText();
       String firstName = cells.get(2).getText();
       int iD = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
-      ContactData contact = new ContactData(iD, lastName, firstName, null, null, null, null);
-      contacts.add(contact);
+      contacts.add(new ContactData().withId(iD).withFirstName(firstName).withLastName(lastName));
     }
     return contacts;
   }
+
+
 }
