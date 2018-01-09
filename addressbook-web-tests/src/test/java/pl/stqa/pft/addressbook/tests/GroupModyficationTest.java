@@ -7,6 +7,7 @@ import pl.stqa.pft.addressbook.model.Groups;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
 public class GroupModyficationTest extends TestBase {
@@ -19,14 +20,14 @@ public class GroupModyficationTest extends TestBase {
     }
   }
 
-@Test (enabled = false)
+@Test (enabled = true)
   public void testGroupModyfication() {
     Groups before = app.group().all();
     GroupData modifiedGroup = before.iterator().next();
     GroupData group = new GroupData().withId(modifiedGroup.getId()).withName("test1").withHeader("test2").withFooter("test3");
     app.group().modify(group);
+    assertThat(app.group().count() , equalTo( before.size() ));
     Groups after = app.group().all();
-  assertEquals(after.size(), before.size());
   assertThat(before.without(modifiedGroup).withAdded(group), equalTo(after));
 
 
