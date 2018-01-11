@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 
 public class ContactCreationTest extends TestBase {
 
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void testContactCreation() {
 
     app.goTo().homePage();
