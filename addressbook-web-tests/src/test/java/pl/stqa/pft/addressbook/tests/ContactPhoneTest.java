@@ -21,7 +21,7 @@ public class ContactPhoneTest extends TestBase {
               .withFirstName("takie").withLastName("testnazwi").withAddress("gdzies").withHomephone("1231234").withEmail("imejl@test.pl").withGroup("test1"));
     } }
 
-@Test
+@Test (enabled = true)
   public void testContactPhones() {
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);

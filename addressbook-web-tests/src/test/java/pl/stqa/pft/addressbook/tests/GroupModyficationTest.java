@@ -20,7 +20,7 @@ public class GroupModyficationTest extends TestBase {
     }
   }
 
-@Test (enabled = true)
+@Test (enabled = false)
   public void testGroupModyfication() {
     Groups before = app.group().all();
     GroupData modifiedGroup = before.iterator().next();
@@ -29,7 +29,6 @@ public class GroupModyficationTest extends TestBase {
     assertThat(app.group().count() , equalTo( before.size() ));
     Groups after = app.group().all();
   assertThat(before.without(modifiedGroup).withAdded(group), equalTo(after));
-
 
 
   }

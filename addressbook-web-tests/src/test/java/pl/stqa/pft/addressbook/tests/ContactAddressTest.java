@@ -4,7 +4,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pl.stqa.pft.addressbook.model.ContactData;
 
-public class ContactAdressTest extends TestBase {
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+public class ContactAddressTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -15,9 +18,18 @@ public class ContactAdressTest extends TestBase {
     }
   }
 
-  @Test
+  @Test (enabled = true)
   public void testContactAdress() {
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
+
+    assertThat(cleaned(contact.getAddress()), equalTo(cleaned(contactInfoFromEditForm.getAddress())));
+
   }
-}
+
+  private String cleaned(String address) {
+    return address.replaceAll("\\s","");
+  }
+  }
+
+
