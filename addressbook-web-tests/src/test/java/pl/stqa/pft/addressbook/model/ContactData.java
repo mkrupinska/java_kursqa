@@ -6,6 +6,7 @@ public class ContactData {
   private int id;
   private String firstname;
   private String lastname;
+  private String middlename;
   private String address;
   private String homephone;
   private String mobilephone;
@@ -15,6 +16,22 @@ public class ContactData {
   private String email2;
   private String email3;
   private String allEmails;
+  private String fax;
+  private String company;
+  private String homepage;
+  private String bDay;
+  private String bMonth;
+  private String bYear;;
+  private String aDay;
+  private String aMonth;
+  private String aYear;
+  private String anniversary;
+  private String birthday;
+  private String secAddress;
+  private String secHomePhone;
+  private String notes;
+  private String nickname;
+  private String title;
   private String group = "test1";
 
   public ContactData withId (int id){
@@ -70,12 +87,84 @@ public class ContactData {
     return this;
   }
 
-  public int getId() {
-    return id;
+  public ContactData withMiddlename(String middlename) {
+    this.middlename = middlename;
+    return this;
   }
 
-  public String getFirstname() {
-    return firstname;
+  public ContactData withCompany(String company) {
+    this.company = company;
+    return this;
+  }
+
+  public ContactData withHomepage(String homepage) {
+    this.homepage = homepage;
+    return this;
+  }
+
+  public ContactData withBirdhday(String birthday) {
+    this.birthday = birthday;
+    return this;
+  }
+
+  public ContactData withAnniversary(String anniversary) {
+    this.anniversary = anniversary;
+    return this;
+  }
+
+  public ContactData withSecAddress(String secAddress) {
+    this.secAddress = secAddress;
+    return this;
+  }
+
+  public ContactData withSecHomePhone(String secHomePhone) {
+    this.secHomePhone = secHomePhone;
+    return this;
+  }
+  public ContactData withNotes (String notes) {
+    this.notes = notes;
+    return this;
+  }
+  public ContactData withBDay (String bDay){
+    this.bDay = bDay;
+    return this;
+  }
+
+  public ContactData withBMonth(String bMonth) {
+    this.bMonth = bMonth;
+    return this;
+  }
+
+  public ContactData withBYear(String bYear) {
+    this.bYear = bYear;
+    return this;
+  }
+
+  public ContactData withADay(String aDay) {
+    this.aDay = aDay;
+    return this;
+  }
+
+  public ContactData withAMonth(String aMonth) {
+    this.aMonth = aMonth;
+    return this;
+  }
+
+  public ContactData withAYear(String aYear) {
+    this.aYear = aYear;
+    return this;
+  }
+  public ContactData withNickname (String nickname){
+    this.nickname = nickname;
+    return this;
+  }
+  public ContactData withTitle (String title){
+    this.title = title;
+    return this;
+  }
+  public ContactData withFax (String fax){
+    this.fax = fax;
+    return this;
   }
 
   @Override
@@ -93,6 +182,15 @@ public class ContactData {
 
     return Objects.hash(id, firstname, lastname);
   }
+
+  public int getId() {
+    return id;
+  }
+
+  public String getFirstname() {
+    return firstname;
+  }
+
 
   public String getLastname() {
     return lastname;
@@ -122,9 +220,6 @@ public class ContactData {
     return workphone;
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
 
   public String getAllPhones() {
     return allPhones;
@@ -140,5 +235,71 @@ public class ContactData {
 
   public String getEmail3() {
     return email3;
+  }
+
+  public String getMiddlename() {
+    return middlename;
+  }
+
+  public String getCompany() {
+    return company;
+  }
+
+  public String getHomepage() {
+    return homepage;
+  }
+
+  public String getBDay() {
+    return bDay;
+  }
+
+  public String getAnniversary() {
+    return anniversary;
+  }
+
+  public String getSecAddress() {
+    return secAddress;
+  }
+
+  public String getSecHomePhone() {
+    return secHomePhone;
+  }
+
+  public String getFax() {
+    return fax;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
+
+  public String getBMonth() {
+    return bMonth;
+  }
+
+  public String getBYear() {
+    return bYear;
+  }
+
+  public String getADay() {
+    return aDay;
+  }
+
+  public String getAMonth() {
+    return aMonth;
+  }
+
+  public String getAYear() {
+    return aYear;
+  }
+
+  public String getBirthday() {
+    return birthday;
+  }
+  public String getNickname (){
+    return nickname;
+  }
+  public String getTitle (){
+    return title;
   }
 }

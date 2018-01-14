@@ -8,6 +8,7 @@ import org.testng.Assert;
 import pl.stqa.pft.addressbook.model.ContactData;
 import pl.stqa.pft.addressbook.model.Contacts;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends BaseHelper {
@@ -52,6 +53,19 @@ public class ContactHelper extends BaseHelper {
       System.out.println("there is no element with selected ID, random element selected");
     }
     return element;
+  }
+
+  public void chooseElementDetails (ContactData contact) {
+    int id = contact.getId();
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    for (WebElement row : rows) {
+      List<WebElement> cells = row.findElements(By.tagName("td"));
+      int iD = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
+      if (id == iD) {
+        cells.get(6).findElement(By.cssSelector("img[title=\"Details\"]")).click();
+        return;
+      }
+    }
   }
 
   public void chooseEditContact(ContactData contact) {
@@ -145,10 +159,40 @@ public class ContactHelper extends BaseHelper {
     String email1 = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String middlename = wd.findElement(By.name("middlename")).getAttribute("value");
+    String nickname = wd.findElement(By.name("nickname")).getAttribute("value");
+    String company = wd.findElement(By.name("company")).getAttribute("value");
+    String title = wd.findElement(By.name("title")).getAttribute("value");
+    String fax = wd.findElement(By.name("fax")).getAttribute("value");
+    String secAddress = wd.findElement(By.name("address2")).getAttribute("value");
+    String secHomePhone = wd.findElement(By.name("phone2")).getAttribute("value");
+    String notes = wd.findElement(By.name("notes")).getAttribute("value");
+    String homepage = wd.findElement(By.name("homepage")).getAttribute("value");
+    String bDay = wd.findElement(By.name("bday")).findElement(By.cssSelector("option[selected=selected]")).getText();//.getAttribute("selected");
+    String bMonth = wd.findElement(By.name("bmonth")).findElement(By.cssSelector("option[selected=selected]")).getText();
+    String bYear = wd.findElement(By.name("byear")).getAttribute("value");
+    String aDay = wd.findElement(By.name("aday")).findElement(By.cssSelector("option[selected=selected]")).getText();
+    String aMonth = wd.findElement(By.name("amonth")).findElement(By.cssSelector("option[selected=selected]")).getText();
+    String aYear = wd.findElement(By.name("ayear")).getAttribute("value");
+
 
     wd.navigate().back();
     return new ContactData().withLastName(lastname).withFirstName(firstname)
-            .withHomephone(home).withWorkphone(work).withMobilephone(mobile).withAddress(address).withEmail(email1).withEmail2(email2).withEmail3(email3);
+            .withHomephone(home).withWorkphone(work).withMobilephone(mobile).withAddress(address)
+            .withEmail(email1).withEmail2(email2).withEmail3(email3).withMiddlename(middlename).withNickname(nickname).withCompany(company).withTitle(title)
+            .withFax(fax).withSecAddress(secAddress).withSecHomePhone(secHomePhone).withNotes(notes).withBDay(bDay).withBMonth(bMonth).withBYear(bYear)
+            .withADay(aDay).withAMonth(aMonth).withAYear(aYear).withHomepage(homepage).withBirdhday(bDay+bMonth+bYear).withAnniversary(aDay+aMonth+aYear);
+  }
 
+  public String infoFromDetailsPage (ContactData contact){
+    chooseElementDetails(contact);
+    WebElement details = wd.findElement(By.id("content"));
+    String [] parts = details.getText().split("Member of:");
+    String detailsText = parts[0];
+   // String detailsText = details.getText();
+   // System.out.println(detailsText);
+    wd.navigate().back();
+    return detailsText;
   }
 }
+
