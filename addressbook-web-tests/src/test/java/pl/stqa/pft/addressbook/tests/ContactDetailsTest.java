@@ -39,8 +39,8 @@ public class ContactDetailsTest extends TestBase {
   private String mergeContact(ContactData contat) {
     return Arrays.asList(contat.getFirstname(), contat.getMiddlename(), contat.getLastname(),contat.getNickname(),contat.getTitle(),contat.getCompany(),
             contat.getAddress(),contat.getHomephone(),contat.getMobilephone(),contat.getWorkphone(),contat.getFax(),contat.getEmail(),contat.getEmail2(),
-            contat.getEmail3(),contat.getHomepage(),contat.getBirthday(),contat.getAnniversary(),contat.getSecAddress(),contat.
-                    getSecHomePhone(),contat.getNotes())
+            contat.getEmail3(),contat.getHomepage(),contat.getBirthday(),contat.getAnniversary(),contat.getSecAddress(),contat
+                    .getSecHomePhone(),contat.getNotes())
             .stream().filter((s) -> s !=null && !s.equals("")).map(ContactDetailsTest::cleaned)
             .collect(Collectors.joining());
   }
@@ -80,7 +80,7 @@ public class ContactDetailsTest extends TestBase {
     if (source.getSecHomePhone() != null && source.getSecHomePhone().length() > 0) {
       result.withSecHomePhone("P:" + source.getSecHomePhone());
     } else {
-      result.withWorkphone(source.getSecHomePhone());
+      result.withSecHomePhone(source.getSecHomePhone());
     }
     if (source.getBirthday() != null && source.getBirthday().length() > 0 && !source.getBirthday().equals("--")) {
       result.withBirdhday("Birthday" + source.getBirthday());

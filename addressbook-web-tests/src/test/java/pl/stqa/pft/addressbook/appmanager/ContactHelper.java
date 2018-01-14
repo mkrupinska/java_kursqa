@@ -190,7 +190,6 @@ public class ContactHelper extends BaseHelper {
     String [] parts = details.getText().split("Member of:");
     String detailsText = parts[0];
    // String detailsText = details.getText();
-   // System.out.println(detailsText);
     wd.navigate().back();
     return detailsText;
   }
