@@ -48,10 +48,12 @@ public class ContactData {
   @Expose
   private String nickname;
   private String title;
-  @XStreamOmitField
+  @Expose
   private File photo;
-  @XStreamOmitField
+  @Expose
   private String group = "test1";
+  @Expose
+  private String photoPath;
 
   public ContactData withId (int id){
     this.id = id;
@@ -188,6 +190,7 @@ public class ContactData {
 
   public ContactData withPhoto (File photo) {
     this.photo = photo;
+    this.photoPath = photo.getAbsolutePath();
     return this;
   }
 
@@ -327,7 +330,17 @@ public class ContactData {
     return title;
   }
 
+  public String getPhotoPath()
+  {
+    return photoPath;
+  }
+
   public File getPhoto() {
     return photo;
+  }
+
+  public ContactData()
+  {
+
   }
 }
