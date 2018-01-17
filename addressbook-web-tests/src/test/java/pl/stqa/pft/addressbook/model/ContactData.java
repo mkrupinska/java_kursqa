@@ -339,8 +339,4 @@ public class ContactData {
     return photo;
   }
 
-  public ContactData()
-  {
-
-  }
 }

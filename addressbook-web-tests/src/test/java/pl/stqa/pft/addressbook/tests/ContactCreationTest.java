@@ -67,7 +67,6 @@ public class ContactCreationTest extends TestBase {
 
     app.goTo().homePage();
     Contacts before = app.contact().all();
-   // File photo = new File("src/test/resources/stru.png");
     app.contact().createContact(contact);
     app.goTo().homePage();
     Contacts after = app.contact().all();
