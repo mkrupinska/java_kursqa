@@ -7,9 +7,7 @@
     "email": "email@0",
     "homepage": "testHomepage 0",
     "nickname": "tnickname0",
-    "photo": {},
-    "group": "test1",
-    "photoPath": "C:\\Users\\krupinska-monika\\Documents\\GitHub\\java_kursqa\\addressbook-web-tests\\src\\test\\resources\\stru.png"
+    "group": "test1"
   },
   {
     "firstname": "testFN 1",
@@ -19,9 +17,7 @@
     "email": "email@1",
     "homepage": "testHomepage 1",
     "nickname": "tnickname1",
-    "photo": {},
-    "group": "test1",
-    "photoPath": "C:\\Users\\krupinska-monika\\Documents\\GitHub\\java_kursqa\\addressbook-web-tests\\src\\test\\resources\\stru.png"
+    "group": "test1"
   },
   {
     "firstname": "testFN 2",
@@ -31,8 +27,6 @@
     "email": "email@2",
     "homepage": "testHomepage 2",
     "nickname": "tnickname2",
-    "photo": {},
-    "group": "test1",
-    "photoPath": "C:\\Users\\krupinska-monika\\Documents\\GitHub\\java_kursqa\\addressbook-web-tests\\src\\test\\resources\\stru.png"
+    "group": "test1"
   }
 ]

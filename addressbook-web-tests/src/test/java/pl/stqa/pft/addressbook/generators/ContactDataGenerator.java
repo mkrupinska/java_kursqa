@@ -6,7 +6,6 @@ import com.beust.jcommander.ParameterException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
-import org.testng.annotations.Test;
 import pl.stqa.pft.addressbook.model.ContactData;
 
 
@@ -19,11 +18,6 @@ import java.util.List;
 
 public class ContactDataGenerator {
 
- /* @Test
-  public void testCurrentDir() {
-    File currentDir = new File (".");
-    System.out.println(currentDir.getAbsolutePath());}
-*/
 
   @Parameter(names = "-c", description = "Contact count")
   public int count;
@@ -82,8 +76,8 @@ public class ContactDataGenerator {
   private static void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     Writer writer = new FileWriter(file);
     for (ContactData contact:contacts) {
-      writer.write(String.format("%s;%s;%s,%s,%s,%s,%s\n", contact.getLastname(), contact.getFirstname(), contact.getHomephone(), contact.getAddress(),
-              contact.getHomephone(), contact.getPhoto(), contact.getGroup()));
+      writer.write(String.format("%s;%s;%s,%s,%s,%s\n", contact.getLastname(), contact.getFirstname(), contact.getHomephone(), contact.getAddress(),
+              contact.getHomephone(), contact.getGroup()));
     }
     writer.close();
   }
@@ -93,7 +87,7 @@ public class ContactDataGenerator {
     for (int i = 0; i<count; i++) {
       contact.add(new ContactData().withFirstName(String.format("testFN %s", i)).withLastName(String.format("testLM %s", i)).withHomephone(String.format("homephone %s", i))
               .withAddress(String.format("Adress Test %s", i)).withEmail(String.format("email@%s", i)).withHomepage(String.format("testHomepage %s", i)).withMobilephone(String.format("mobileTest%s", i))
-              .withNickname(String.format("tnickname%s", i)).withPhoto(new File("src/test/resources/stru.png")).withGroup("test1"));
+              .withNickname(String.format("tnickname%s", i)).withGroup("test1"));
     }
     return contact;
   }

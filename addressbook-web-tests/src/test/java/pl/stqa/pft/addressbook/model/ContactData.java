@@ -48,11 +48,9 @@ public class ContactData {
   @Expose
   private String nickname;
   private String title;
-  @Expose
   private File photo;
   @Expose
   private String group = "test1";
-  @Expose
   private String photoPath;
 
   public ContactData withId (int id){
@@ -190,7 +188,7 @@ public class ContactData {
 
   public ContactData withPhoto (File photo) {
     this.photo = photo;
-    this.photoPath = photo.getAbsolutePath();
+    //this.photoPath = photo.getAbsolutePath();
     return this;
   }
 

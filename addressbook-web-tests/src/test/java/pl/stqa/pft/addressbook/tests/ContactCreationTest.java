@@ -50,19 +50,11 @@ public class ContactCreationTest extends TestBase {
     }
     Gson gson = new Gson();
     List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());
-    if (contacts != null)
-    {
-      for (int i = 0; i < contacts.size(); i++)
-      {
-        contacts.get(i).withPhoto(new File(contacts.get(i).getPhotoPath()));
-      }
-    }
-
     return contacts.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
   }
 
 
-  @Test (dataProvider = "validContacts")
+  @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
 
     app.goTo().homePage();
@@ -85,6 +77,15 @@ public class ContactCreationTest extends TestBase {
     File photo = new File ("src/test/resources/stru.png");
     System.out.println(photo.getAbsolutePath());
     System.out.println(photo.exists());
+
+     if (contacts != null)
+    {
+      for (int i = 0; i < contacts.size(); i++)
+      {
+        contacts.get(i).withPhoto(new File(contacts.get(i).getPhotoPath()));
+      }
+    }
+
 
   }
  */
