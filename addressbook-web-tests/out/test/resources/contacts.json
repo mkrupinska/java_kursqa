@@ -28,5 +28,15 @@
     "homepage": "testHomepage 2",
     "nickname": "tnickname2",
     "group": "test1"
+  },
+  {
+    "firstname": "testFN 3",
+    "lastname": "testLM 3",
+    "address": "Adress Test 3",
+    "homephone": "homephone 3",
+    "email": "email@3",
+    "homepage": "testHomepage 3",
+    "nickname": "tnickname3",
+    "group": "test1"
   }
 ]
