@@ -1,0 +1,41 @@
+<list>
+  <contact>
+    <firstname>testFN 0</firstname>
+    <lastname>testLM 0</lastname>
+    <address>Adress Test 0</address>
+    <homephone>homephone 0</homephone>
+    <mobilephone>mobileTest0</mobilephone>
+    <email>email@0</email>
+    <homepage>testHomepage 0</homepage>
+    <nickname>tnickname0</nickname>
+    <photo>src\test\resources\stru.png</photo>
+    <group>test1</group>
+    <photoPath>C:\Users\krupinska-monika\Documents\GitHub\java_kursqa\addressbook-web-tests\src\test\resources\stru.png</photoPath>
+  </contact>
+  <contact>
+    <firstname>testFN 1</firstname>
+    <lastname>testLM 1</lastname>
+    <address>Adress Test 1</address>
+    <homephone>homephone 1</homephone>
+    <mobilephone>mobileTest1</mobilephone>
+    <email>email@1</email>
+    <homepage>testHomepage 1</homepage>
+    <nickname>tnickname1</nickname>
+    <photo>src\test\resources\stru.png</photo>
+    <group>test1</group>
+    <photoPath>C:\Users\krupinska-monika\Documents\GitHub\java_kursqa\addressbook-web-tests\src\test\resources\stru.png</photoPath>
+  </contact>
+  <contact>
+    <firstname>testFN 2</firstname>
+    <lastname>testLM 2</lastname>
+    <address>Adress Test 2</address>
+    <homephone>homephone 2</homephone>
+    <mobilephone>mobileTest2</mobilephone>
+    <email>email@2</email>
+    <homepage>testHomepage 2</homepage>
+    <nickname>tnickname2</nickname>
+    <photo>src\test\resources\stru.png</photo>
+    <group>test1</group>
+    <photoPath>C:\Users\krupinska-monika\Documents\GitHub\java_kursqa\addressbook-web-tests\src\test\resources\stru.png</photoPath>
+  </contact>
+</list>

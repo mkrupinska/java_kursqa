@@ -1,0 +1,42 @@
+[
+  {
+    "firstname": "testFN 0",
+    "lastname": "testLM 0",
+    "address": "Adress Test 0",
+    "homephone": "homephone 0",
+    "email": "email@0",
+    "homepage": "testHomepage 0",
+    "nickname": "tnickname0",
+    "group": "test1"
+  },
+  {
+    "firstname": "testFN 1",
+    "lastname": "testLM 1",
+    "address": "Adress Test 1",
+    "homephone": "homephone 1",
+    "email": "email@1",
+    "homepage": "testHomepage 1",
+    "nickname": "tnickname1",
+    "group": "test1"
+  },
+  {
+    "firstname": "testFN 2",
+    "lastname": "testLM 2",
+    "address": "Adress Test 2",
+    "homephone": "homephone 2",
+    "email": "email@2",
+    "homepage": "testHomepage 2",
+    "nickname": "tnickname2",
+    "group": "test1"
+  },
+  {
+    "firstname": "testFN 3",
+    "lastname": "testLM 3",
+    "address": "Adress Test 3",
+    "homephone": "homephone 3",
+    "email": "email@3",
+    "homepage": "testHomepage 3",
+    "nickname": "tnickname3",
+    "group": "test1"
+  }
+]
