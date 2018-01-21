@@ -17,3 +17,4 @@ addressbook-web-tests/out/test/classes/SetEl.class
 addressbook-web-tests/out/test/classes/taki.class
 sandbox/out/production/classes/pl/stqa/pft/sandbox/Equality.class
 addressbook-web-tests/src/test/java/pl/stqa/pft/addressbook/tests/ContactAdressTest.java
+*.log
