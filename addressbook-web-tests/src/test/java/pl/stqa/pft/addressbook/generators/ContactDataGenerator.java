@@ -7,6 +7,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import pl.stqa.pft.addressbook.model.ContactData;
+import pl.stqa.pft.addressbook.model.Groups;
+import pl.stqa.pft.addressbook.tests.TestBase;
 
 
 import java.io.File;
@@ -16,7 +18,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactDataGenerator {
+public class ContactDataGenerator extends TestBase {
 
 
   @Parameter(names = "-c", description = "Contact count")
@@ -75,17 +77,18 @@ public class ContactDataGenerator {
     Writer writer = new FileWriter(file);
     for (ContactData contact:contacts) {
       writer.write(String.format("%s;%s;%s,%s,%s,%s\n", contact.getLastname(), contact.getFirstname(), contact.getHomephone(), contact.getAddress(),
-              contact.getHomephone(), contact.getGroup()));
+              contact.getHomephone(), contact.getGroups()));
     }
     writer.close();
   }
 
   private static List<ContactData> generatorConacts(int count) {
     List <ContactData> contact = new ArrayList<ContactData>();
+    Groups groups = app.db().groups();
     for (int i = 0; i<count; i++) {
       contact.add(new ContactData().withFirstName(String.format("testFN %s", i)).withLastName(String.format("testLM %s", i)).withHomephone(String.format("homephone %s", i))
               .withAddress(String.format("Adress Test %s", i)).withEmail(String.format("email@%s", i)).withHomepage(String.format("testHomepage %s", i)).withMobilephone(String.format("mobileTest%s", i))
-              .withNickname(String.format("tnickname%s", i)).withGroup("test1"));
+              .withNickname(String.format("tnickname%s", i)).inGroup(groups.iterator().next()));
     }
     return contact;
   }
