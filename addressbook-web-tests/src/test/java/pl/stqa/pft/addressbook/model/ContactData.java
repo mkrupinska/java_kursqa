@@ -120,17 +120,7 @@ public class ContactData {
   @Transient
   private String title;
 
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id=" + id +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            ", address='" + address + '\'' +
-            ", homephone='" + homephone + '\'' +
-            ", email='" + email + '\'' +
-            '}';
-  }
+
 
   @Column (name = "photo")
   @Type(type = "text")
@@ -282,22 +272,6 @@ public class ContactData {
     return this;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return id == that.id &&
-            Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname);
-  }
-
-  @Override
-  public int hashCode() {
-
-    return Objects.hash(id, firstname, lastname);
-  }
-
   public int getId() {
     return id;
   }
@@ -424,7 +398,42 @@ public class ContactData {
   }
 
   public File getPhoto() {
+    if (photo == null){
+      return null;
+    }
     return new File(photo);
+
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id &&
+            Objects.equals(firstname, that.firstname) &&
+            Objects.equals(lastname, that.lastname) &&
+            Objects.equals(address, that.address) &&
+            Objects.equals(homephone, that.homephone) &&
+            Objects.equals(email, that.email);
+  }
+
+  @Override
+  public int hashCode() {
+
+    return Objects.hash(id, firstname, lastname, address, homephone, email);
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", address='" + address + '\'' +
+            ", homephone='" + homephone + '\'' +
+            ", email='" + email + '\'' +
+            '}';
   }
 
 }
